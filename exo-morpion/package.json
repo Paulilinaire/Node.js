@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "console-grid": "^2.0.1",
     "figlet": "^1.7.0",
     "n-readline": "^0.1.2"
   }

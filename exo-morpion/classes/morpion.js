@@ -18,7 +18,8 @@ export class Morpion {
 
     // mise en page
     updateLayout(){
-    this.morpionLayout = `${this.displayItem(this.morpion[0])} | ${this.displayItem(this.morpion[1])} | ${this.displayItem(this.morpion[3])}
+    this.morpionLayout = 
+    `${this.displayItem(this.morpion[0])} | ${this.displayItem(this.morpion[1])} | ${this.displayItem(this.morpion[3])}
     ---------
     ${this.displayItem(this.morpion[3])} | ${this.displayItem(this.morpion[4])} | ${this.displayItem(this.morpion[5])}
     ---------
@@ -53,12 +54,12 @@ export class Morpion {
         if(!this.gameEnded){
         // échange de joueur
         this.currentPlayer = arguments[0] ? this.currentPlayer : !this.currentPlayer;
-        console.log(`Joueur ${this.displayPlayer(this.currentPlayer)}, à vous de jouer ! Choisissez un numéro de 1 à 9: `)
+        console.log(` Joueur ${this.displayPlayer(this.currentPlayer)}, à vous de jouer ! Choisissez un numéro entre 1 et 9: `)
         }
     }
 
     processGame(){
-        // 5 coups de joué
+        // les combinaisons gagnantes
         if(this.moveRegister.length >= 5){
           let checkSet = new Set()
           // alignement vertical possible
@@ -107,16 +108,16 @@ export class Morpion {
         return item === undefined ? ' ' : item
         }
 
-        displayPlayer(plyr){
-            return plyr ? 1 : 2
+        displayPlayer(player){
+            return player ? 1 : 2
         }
 
         getPlayerFromChar(char){
             return this.displayPlayer(char === 'X')
         }
 
-        getCharacter(plyr){
-            return plyr ? 'X' : 'O'
+        getCharacter(player){
+            return player ? 'X' : 'O'
         }
   
         displayLayout(){
@@ -145,7 +146,7 @@ export class Morpion {
 
         // afficher les mauvais coups
         errorMove(message){
-            console.log(`${arguments[0] ? arguments[0]:''}Joueur ${this.displayPlayer(this.currentPlayer)}, c'est encore à vous ! Choisissez un numéro de 1 à 9:`)
+            console.log(`${arguments[0] ? arguments[0]:''} Joueur ${this.displayPlayer(this.currentPlayer)}, c'est encore à vous ! Choisissez un numéro entre 1 et 9:`)
         }
 
         recordMove(position, player){
